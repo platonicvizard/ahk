@@ -1,11 +1,15 @@
 var fs = require('fs');
 var yargs = require('yargs');
-var INTERVAL = (Number(yargs.argv.i || yargs.argv.interval || process.argv[2]) || 1) * 1000 || 1000;
-var TIMER_DELAY = Number(yargs.argv.t || yargs.argv.timerDelay ||process.argv[3]) || 0;
-var i = 0;
 
+var INTERVAL = (Number(yargs.argv.i || yargs.argv.interval || process.argv[2]) || 1) * 1000 || 1000;
+var TIMER_DELAY = (Number(yargs.argv.t || yargs.argv.timerDelay ||process.argv[3]) || 0) * 1000;
+
+var i = 0;
 var newLine = false;
+
 //console.log('INTERVAL',INTERVAL,'TIMER_DELAY',TIMER_DELAY)
+
+//generates a test log file
 setInterval(() => {
   newLine = true;
   i++;
@@ -29,10 +33,7 @@ setInterval(() => {
 
 
 
-
-
-//generates a test log file
-yargs.command(['[interval]', '[i]'], 'Integer describing how often to run the update in seconds.', (yargs) => {
+exports.testyargs = yargs.command(['[interval]', '[i]'], 'Integer describing how often to run the update in seconds.', (yargs) => {
     yargs
       .positional('interval', {
         describe: 'Integer describing how often to run the update',
