@@ -1,0 +1,5 @@
+use JSON; 
+
+@in = grep(s/\n$//, <>); 
+
+print encode_json(\@in)."\n";
