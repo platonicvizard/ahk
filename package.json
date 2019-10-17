@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "robotjs": "^0.5.1",
     "yargs": "^14.2.0"
   }
 }

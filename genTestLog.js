@@ -7,8 +7,6 @@ var TIMER_DELAY = (Number(yargs.argv.t || yargs.argv.timerDelay ||process.argv[3
 var i = 0;
 var newLine = false;
 
-//console.log('INTERVAL',INTERVAL,'TIMER_DELAY',TIMER_DELAY)
-
 //generates a test log file
 setInterval(() => {
   newLine = true;
