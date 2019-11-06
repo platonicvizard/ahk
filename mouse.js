@@ -1,4 +1,16 @@
 var robot = require("robotjs");  
+var exec = require('child_process').execFile;
+
+var startExternalProcess = function(name){
+
+	console.log(`ExternalProcess started => ${name}`);	  
+	exec(name, function(err, data) {
+		console.log(err);
+		console.log(data.toString());
+	});  
+}
+
+
 // Speed up the mouse. 
 robot.setMouseDelay(2);  
 var twoPI = Math.PI * 2.0; 
@@ -16,4 +28,11 @@ for (var x = 0; x < width; x++) {
 
 process.stdin.setRawMode(true);
 process.stdin.resume();
-process.stdin.on('data', process.exit.bind(process, 0));
+
+
+var exitProcess = process.exit.bind(process, 0);
+process.stdin.on('data', () => {
+	startExternalProcess('key.exe');
+	exitProcess(); 
+});
+
