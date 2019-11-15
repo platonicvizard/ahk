@@ -1,0 +1,4 @@
+- GDIp.ahk
+  - https://github.com/tariqporter/Gdip
+- CMDret.ahk
+  - Refer to https://autohotkey.com/board/topic/7874-cmdret-ahk-functions/ for the latest code.
